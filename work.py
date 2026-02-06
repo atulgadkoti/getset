@@ -2,11 +2,11 @@ import requests
 import schedule
 import time
 from config import API_URL
-
+import os
 def make_request():
     """Make a GET request to the URL"""
     try:
-        response = requests.get(API_URL)
+        response = requests.get(os.environ.get("API_KEY"))
         print(f"Status Code: {response.status_code}")
         print(f"Response: {response.text[:200]}")  # Print first 200 chars
     except Exception as e:
