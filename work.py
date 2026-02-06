@@ -4,7 +4,7 @@ import os
 API_URL = os.environ["API_URL"]
 
 def make_request():
-    response = requests.get(API_URL, timeout=70)
+    response = requests.get(API_URL, timeout=120)
     print("Status:", response.status_code)
     print("Response:", response.text[:200])
 
