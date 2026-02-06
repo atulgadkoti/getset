@@ -1,22 +1,11 @@
+# work.py
 import requests
-import schedule
-import time
-import os
+from config import API_URL
+
 def make_request():
-    """Make a GET request to the URL"""
-    try:
-        response = requests.get(os.environ.get("API_KEY"))
-        print(f"Status Code: {response.status_code}")
-        print(f"Response: {response.text[:200]}")  # Print first 200 chars
-    except Exception as e:
-        print(f"Error: {e}")
+    response = requests.get(API_URL, timeout=30)
+    print("Status:", response.status_code)
+    print("Response:", response.text[:200])
 
-# Schedule the request to run every 10 minutes
-schedule.every(10).minutes.do(make_request)
-
-print("Scheduler started. Making requests every 10 minutes...")
-
-# Keep the scheduler running
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+if __name__ == "__main__":
+    make_request()
