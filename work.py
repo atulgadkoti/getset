@@ -1,7 +1,6 @@
 import requests
 import schedule
 import time
-from config import API_URL
 import os
 def make_request():
     """Make a GET request to the URL"""
