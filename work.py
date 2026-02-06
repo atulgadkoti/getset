@@ -1,6 +1,7 @@
 # work.py
 import requests
-from config import API_URL
+import os
+API_URL = os.environ["API_URL"]
 
 def make_request():
     response = requests.get(API_URL, timeout=30)
