@@ -23,5 +23,7 @@ jobs:
           pip install requests
 
       - name: Run script
+        env:
+          API_URL: ${{ secrets.API_URL }}   # 👈 this line is the fix
         run: |
           python work.py
